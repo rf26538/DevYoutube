@@ -10,6 +10,14 @@ const Header = () => {
 	const [showSuggestions, setShowSuggestions] = useState(false);
 	
 	useEffect(() => {
+
+		const getSearchSuggestions = async () => {
+			const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+			const json = await data.json();
+
+			setSuggestions(json[1]);
+		} 
+
 		const timer = setTimeout(() => {
 			getSearchSuggestions();
 		}, 200)
@@ -19,15 +27,6 @@ const Header = () => {
 		};
 	}, [searchQuery]);
 
-	const getSearchSuggestions = async () => {
-		// console.log("API CALL -> " + searchQuery);
-
-		const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-		const json = await data.json();
-		// console.log(json);
-
-		setSuggestions(json[1]);
-	}
 	
 	const dispatch = useDispatch();
 
