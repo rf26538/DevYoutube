@@ -12,7 +12,7 @@ const WatchPage = () => {
 
 	useEffect(() => {
 		dispatch(closeMenu());
-	},[])
+	},[dispatch])
 
 	return (
     <div className="px-5 mt-2">
