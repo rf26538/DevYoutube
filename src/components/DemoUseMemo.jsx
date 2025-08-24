@@ -3,7 +3,7 @@ import {findPrime} from "../utils/helper"
 
 const Demo = () => {
     const [text, setText] = useState(0);
-    const [isDarkTheme, setIsDarkTheme] = useState(true);
+    const [isDarkTheme, setIsDarkTheme] = useState(false);
 
     console.log(text);
     
