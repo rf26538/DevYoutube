@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice"
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice"
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -53,11 +54,13 @@ const Header = () => {
 				alt="hamburger-menu"
 				src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-4.png"
 			/>
-			<img
-				className="h-14"
-				alt="youtube-logo"
-				src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6.jpg"
-			/>
+			<Link to="/" key="logo" className="cursor-pointer">
+				<img
+					className="h-14"
+					alt="youtube-logo"
+					src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6.jpg"
+				/>
+			</Link>
 			</div>
 		</div>
 
