@@ -1,10 +1,22 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 const DemoUseRef = () => {
     const [y, setY] = useState(0)
     let x = 0;
 
     const ref = useRef(0);
+    console.log("Rendering....");
+    
+    const i = useRef(null);
+    useEffect(() => {
+        if(i.current) return;
+        i.current = setInterval(() => {
+            console.log("Hello..."+ Math.random());
+            
+        }, 1000);
+
+        // return () => clearInterval(i.current);
+    })
 
     return (
         <div 
@@ -41,6 +53,14 @@ const DemoUseRef = () => {
                 >Increase Z</button>
                 <span className="font-bold text-xl">Ref = {ref.current}</span>
             </div>
+            <button 
+                className="bg-red-600 p-4 m-4 rounded-lg text-white font-bold"
+                onClick={
+                    () => {clearInterval(i.current)}
+                }
+            >
+                Stop Printig   
+            </button>
         </div>
     )
 }
